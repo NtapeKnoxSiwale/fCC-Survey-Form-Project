@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!--html is the main root element-->
+<html>
+<title>CBU-Clinic COVID-19 Vaccine Form</title>
+
+<head>
+    <style>
+        :root {
+            --color-white: #f3f3f3;
+            --color-darkblue: #1b1b32;
+            --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+            --color-green: #37af65;
+        }
+        *,*::before,*::after {
+            box-sizing: border-box;
+        }
+
+        #title {
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            margin: 3rem auto 0 auto;
+        }
+
+        @media(min-width: 576px){
+            .container{
+                max-width: 540px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+        }
+        .header {
+            padding: 0 0.7;
+            margin-bottom: 1.9rem;
+        }
+        #description {
+            text-align: center;
+            font-style: italic;
+            font-weight: 200;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        .clue {
+            margin-left: 0.3rem;
+            font-size: 1rem;
+            color: #e4e4e4;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Arial, Helvetica;
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 0;
+            font-weight: 400;
+            color: var(--color-white);
+            background: rgb(60, 177, 255);
+        }
+        body::before {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            background: var(--color-darkblue);
+            background-image: linear-gradient(
+                115deg, rgba(58, 58, 158, 0.8), rgba(136, 136, 206, 0.7)
+            );
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        h1 {
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        p{
+            font-size: 1.2rem;
+        }
+
+        h1,p {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        input,button,select,textarea {
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        button {
+            border: none;
+        }
+
+        /* form */
+        form {
+            background: var(--color-darkblue-alpha);
+            padding: 2.5rem 0.6rem;
+            margin: 3rem;
+            border-radius: 1rem;
+        }
+        @media (min-width: 480px) {
+            form {
+                padding: 2.5rem;
+            }
+        }
+
+        .form-group {
+            margin: 0 auto 1.3rem auto;
+            padding: 0.3rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 2.4rem;
+            padding: 0.4rem 0.8rem;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border-radius: 0.3rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #ff8080;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.3)
+        }
+
+        .input-radio, .input-checkbox {
+            display: inline-block;
+            margin-right: 0.6;
+            min-height: 1rem;
+            min-width: 1rem;
+        }
+
+        .input-textarea{
+            min-height: 120px;
+            width: 100%;
+            padding: 0.6rem;
+            resize: vertical;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 0.8;
+            background: var(--color-green);
+            color: inherit;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title">
+                The Copperbelt University COVID-19 Vaccine Survey Form
+            </h1>
+            <p id="description">
+                Thank you for taking time to fill in the survey and taking the vaccine.
+            </p>
+        </header>
+
+        <form id="survey-form">
+            <div class="form-group">
+                <label id="name" for="name">
+                    Name:
+                </label>
+                <input id="name" type="text" name="name" class="form-control" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+                Sex:
+                <label>
+                    <input name="sex" value="male" type="radio" class="input-radio" checked />Male</label>
+                <label>
+                    <input name="sex" value="female" type="radio" class="input-radio" />Female</label>
+
+                <label><input name="sex" value="other" type="radio" class="input-radio" />Other</label>
+            </div>
+
+            <div class="form-group">
+                <label id="date-of-birth" for="date-of-birth">
+                    Date Of Birth:
+                </label>
+                <input type="date" id="date-of-birth" class="form-control" name="date-of-birth" />
+            </div>
+
+            <div class="form-group">
+                <label id="number-label" for="number">Age: <span class="clue">(Optional)</span></label>
+                <input type="number" name="age" id="number" min="18" max="100" class="form-control" placeholder="Age" />
+            </div>
+
+            <div class="form-group">
+                <label id="id-passport" for="id-passport">
+                    ID/Passport Number:
+                </label>
+                <input type="number" name="id-passport" class="form-control" placeholder="123456789" id="id-passport">
+            </div>
+
+            <div class="form-group">
+                <label id="phone-number-lable" for="phone-number">
+                    Phone Number:
+                </label>
+                <input id="phone-number" type="tel" name="phone-number" class="form-control" placeholder="Phone number"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label id="email-lable" for="email">
+                    Email:
+                </label>
+                <input id="email" type="email" name="email" class="form-control" placeholder="Enter your email" required />
+            </div>
+
+            <div class="form-group">
+                <label id="address" for="address">
+                    Residential Address:
+                </label>
+                <input id="address" type="text" name="address" class="form-control" placeholder="Enter residential address here" />
+            </div>
+
+            <div class="form-group">
+                <label id="provinces" for="provinces">
+                    Province:
+                </label>
+                <select name="provinces" id="dropdown" class="form-control">
+                    <option disabled selected value>Select province</option>
+                    <option value="central">Central</option>
+                    <option value="copperbelt">Copperbelt</option>
+                    <option value="eastern">Eastern</option>
+                    <option value="luapula">Luapula</option>
+                    <option value="lusaka">Lusaka</option>
+                    <option value="muchinga">Muchinga</option>
+                    <option value="north-western">North Western</option>
+                    <option value="northen">Northern</option>
+                    <option value="southern">Southern</option>
+                    <option value="western">Western</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="health-facility" for="health-facility">
+                    Health Facility:
+                </label>
+                <input id="health-facility" type="text" class="form-control" name="health-facility"
+                    placeholder="Enter the health facility here" />
+            </div>
+
+            <div class="form-group">
+                <p>
+                    Do you suffer from any of the following diseases?
+                    <span class="clue">(Check all that apply)</span>
+                </p>
+
+                <label>
+                    <input name="prefer" value="hiv-aids" type="checkbox" class="input-checkbox" />HIV/AIDS
+                </label>
+                <label>
+                    <input name="prefer" value="heart-problems" type="checkbox" class="input-checkbox" />Heart Problems
+                </label>
+                <label>
+                    <input name="prefer" value="cancer" type="checkbox" class="input-checkbox" />Cancer
+                </label>
+                <label>
+                    <input name="prefer" value="sickle-cell-anaemia" type="checkbox" class="input-checkbox" />Sickle
+                    Cell Anaemia
+                </label>
+                <label>
+                    <input name="prefer" value="chronic-respiratory-diseases" type="checkbox"
+                        class="input-checkbox" />Chronic Respiratory Diseases
+                </label>
+                <label>
+                    <input name="prefer" value="videos" type="checkbox" class="input-checkbox" />Diabetic
+                </label>
+                <label><input name="prefer" value="epilepsy" type="checkbox" class="input-checkbox" />Epilepsy
+                </label>
+                <label><input name="prefer" value="diabetes-mellitus" type="checkbox" class="input-checkbox" />Diabetes
+                    Mellitus (Type II)</label>
+                <label><input name="prefer" value="oral-diseases" type="checkbox" class="input-checkbox" />Oral
+                    Diseases</label>
+                <label><input name="prefer" value="eye-diseases" type="checkbox" class="input-checkbox" />Eye
+                    Diseases</label>
+                <label><input name="prefer" value="others" type="checkbox" class="input-checkbox" />Others
+                </label>
+            </div>
+
+            <div class="form-group">
+                <p>Any additional information concerning your health?</p>
+                <textarea id="comments" class="textarea" name="comment"
+                    placeholder="Enter your comment here..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    SUBMIT
+                </button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
